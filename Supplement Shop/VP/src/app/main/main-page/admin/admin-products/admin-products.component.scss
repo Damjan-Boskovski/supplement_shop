@@ -1,0 +1,47 @@
+.row {
+  margin-top: 150px;
+}
+
+h2 {
+  padding: 15px;
+  border-bottom: 1px solid black;
+  font-weight: 700;
+
+  span {
+    float: right;
+  }
+}
+
+tbody button {
+  margin: 0 5px 0 5px;
+}
+
+table {
+  border-collapse: collapse;
+  background: rgb(237, 237, 237);
+}
+
+th {
+  background: rgb(194, 192, 192);
+  font-size: 17px;
+  border-bottom: 1px solid black;
+}
+
+td {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+th {
+  font-weight: 900;
+}
+
+table,
+th,
+td {
+  border: 1px solid black;
+}
+
+td {
+  border: 1px solid black;
+}

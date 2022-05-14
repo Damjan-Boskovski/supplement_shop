@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-9">
+      <h2>Products ({{ count }})
+        <span>
+          <button (click)="toggleAdd()" class="btn btn-success">
+            <i class="fas fa-plus"></i>&nbsp;&nbsp;Add a new item
+          </button>
+        </span>
+      </h2>
+      <table datatable="" class="table" *ngIf="this.temp_var">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Brand</th>
+            <th>Image</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Description</th>
+            <th style="min-width: 115px;">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of data|sort:['id asc']">
+            <td>{{ item.id }}.</td>
+            <td>{{ item.name }}</td>
+            <td>{{ item.category.name }}</td>
+            <td>{{ item.manufacturer.name }} | {{ item.manufacturer.country }}</td>
+            <td><img [src]='item.imageUrl' style="width: 50px; height: auto;"></td>
+            <td>${{ item.price }}</td>
+            <td>{{ item.quantity }}</td>
+            <td>{{ item.description }}</td>
+            <td style="min-width: 115px;">
+              <button class="btn btn-primary" (click)="toggleEdit(item)"><i class="fas fa-edit"></i></button>
+              <button class="btn btn-danger" (click)="onDelete(item.id)"><i class="fas fa-times"></i></button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div *ngIf="flag" class="col-md-3">
+      <app-admin-add-product [product]="product"></app-admin-add-product>
+    </div>
+  </div>
+</div>

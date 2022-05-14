@@ -1,0 +1,68 @@
+<div class="container-fluid" *ngIf="product">
+  <div class="cart">
+    <div class="row row1">
+      <div class="col-md-4">
+        <img [src]="product.imageUrl" width="100%" id="ProductImg">
+      </div>
+      <div class="col-md-6">
+        <h1 class="product-title"><span style="font-style: normal;">
+            {{ product.manufacturer.name }}</span> 
+          - {{ product.name }}
+        </h1>
+      </div>
+      <div class="price">
+        <span>${{ product.price }}</span>
+      </div>
+      <div class="row">
+          <div *ngIf="isCategoryGear(product)" class="col-md-4">
+            <h4>Color</h4>
+            <div class="colors">
+              <div class="black"></div>
+              <div class="red"></div>
+              <div class="white"></div>
+              <div class="yellow"></div>
+            </div>
+          </div>
+          <div *ngIf="isCategoryGear(product)" class="col-md-4 sze">
+            <h5>Size</h5>
+            <select class="size custom-select">
+              <option>Select Size</option>
+              <option>39</option>
+              <option>40</option>
+              <option>41</option>
+              <option>42</option>
+            </select>
+          </div>
+          <div class="col-md-4 qty">
+            <h5>Quantity ({{ product.quantity }})</h5>
+            <select class="quantity custom-select">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+            </select>
+          </div>
+        </div>
+        <div id="product" class="product-inf">
+          <ul>
+            <li class="active">Product Description</li>
+            <li>Product Details</li>
+          </ul>
+          <div class="tabs-content">
+            <div id="Description">
+              <p>{{ product.description }}</p>
+            </div>
+          </div>
+        </div>
+        <div class="buttons">
+          <div class="row">
+            <div class="col-md-6">
+              <a (click)="onAddToCart()" class="custom-btn">Add To Cart <i class="fas fa-angle-right"></i></a>
+            </div>
+            <div class="col-md-6">
+              <a (click)="onBack()" class="custom-btn"><i class="fas fa-angle-left"></i>&nbsp;&nbsp; Go Back</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

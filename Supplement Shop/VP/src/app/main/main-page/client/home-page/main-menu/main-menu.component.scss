@@ -1,0 +1,71 @@
+.box {
+  transform: scale(0.999);
+  height: 400px;
+  overflow: hidden;
+  transition: all 0.85s ease-in-out;
+  -webkit-transition: width 1s;
+  -moz-transition: width 1s;
+  transition: width 1s;
+  box-shadow: inset 0 0 5em 1em #000;
+  background: url(/assets/images/backgroundBlack.jpg);
+}
+
+.box a {
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+  height: 100%;
+  display: block;
+  padding-top: 20px;
+  font-weight: 700;
+  font-size: 26px;
+  padding-top: 50px;
+}
+
+.box span {
+  display: block;
+  position: relative;
+  top: 100%;
+  text-align: center;
+  transition: all 0.85s ease-in-out;
+  -webkit-transition: top 1s;
+  -moz-transition: top 1s;
+  transition: top 1s;
+  transform: scale(0.8);
+}
+
+.mynav:hover .box {
+  width: 10%;
+  height: 450px;
+  transition: all 0.85s ease-in-out;
+}
+
+.mynav .box:hover {
+  width: 60%;
+  transition: all 0.85s ease-in-out;
+}
+
+.box:hover span {
+  top: 5%;
+  transition: all 0.85s ease-in-out;
+}
+
+.box:nth-child(1):hover {
+  background: url(/assets/images/backgroundRed.jpg);
+  transition: all 1s ease-in-out;
+}
+
+.box:nth-child(2):hover {
+  background: url(/assets/images/backgroundYellow.jpg);
+  transition: all 1s ease-in-out;
+}
+
+.box:nth-child(3):hover {
+  background: url(/assets/images/backgroundPurple.jpg);
+  transition: all 1s ease-in-out;
+}
+
+.box:nth-child(4):hover {
+  background: url(/assets/images/backgroundBlue.jpg);
+  transition: all 1s ease-in-out;
+}

@@ -1,0 +1,40 @@
+<div class="filters" style="text-align: center;">
+
+  <div class="form-group" style="margin-left: 30px;">
+    <input type="text" [(ngModel)]='name' class="form-control" placeholder="Enter a product...">
+    <button class="btn btn-warning" (click)="onNameClear()"><i class="fas fa-times"></i></button>
+  </div>
+
+  <div class="form-group myGroup" style="margin-left: 70px !important;">
+    <label>Min-Max: &nbsp;</label>
+    <input type="number" [(ngModel)]='min' class="form-control myInput">
+    <label>- &nbsp;</label>
+    <input type="number" [(ngModel)]='max' class="form-control myInput">
+    <button class="btn btn-warning" type="button" (click)="onPricesReset()"><i class="fas fa-times"></i></button>
+  </div>
+
+  <div class="form-group" style="margin-left: 70px;">
+    <label>Sort by &nbsp;</label>
+    <select [(ngModel)]='sortBy' class="form-control" style="width: 10% !important;">
+      <option value="Name asc">Alpha &#8593; (asc)</option>
+      <option value="Name desc">Alpha &#8595; (desc)</option>
+      <option value="Price asc">Price &#8593; (asc)</option>
+      <option value="Price desc">Price &#8595; (desc)</option>
+    </select>
+  </div>
+
+</div>
+
+<div class="col-sm-4" style="transform: scale(0.95);" *ngFor="let item of products|filter:name:'name'
+                                 |sort:[sortBy]
+                                 |range:['price', min, max]
+                                 |paginate:{ itemsPerPage: 9, currentPage: currentPage }">
+  <app-product-grid [product]="item"></app-product-grid>
+</div>
+<div class="row">
+  <div class="col-sm-4"></div>
+  <div class="col-sm-4">
+    <pagination-controls (pageChange)="currentPage = $event" #pagin></pagination-controls>
+  </div>
+  <div class="col-sm-4"></div>
+</div>

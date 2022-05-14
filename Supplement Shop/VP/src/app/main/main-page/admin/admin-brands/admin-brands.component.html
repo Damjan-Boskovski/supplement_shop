@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-9">
+      <h2>Brands ({{ count }})
+        <span>
+          <button (click)="toggleAdd()" class="btn btn-success">
+            <i class="fas fa-plus"></i>&nbsp;&nbsp;Add a new item
+          </button>
+        </span>
+      </h2>
+      <table datatable="" class="table" *ngIf="this.temp_var">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Country</th>
+            <th style="min-width: 115px;">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of data|sort:['id asc']">
+            <td>{{ item.id }}.</td>
+            <td>{{ item.name }}</td>
+            <td>{{ item.country }}</td>
+            <td style="min-width: 115px;">
+              <button class="btn btn-primary" (click)="toggleEdit(item)"><i class="fas fa-edit"></i></button>
+              <button class="btn btn-danger" (click)="onDelete(item.id)"><i class="fas fa-times"></i></button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div *ngIf="flag" class="col-md-3">
+      <app-admin-add-brand [brand]="brand"></app-admin-add-brand>
+    </div>
+  </div>
+</div>

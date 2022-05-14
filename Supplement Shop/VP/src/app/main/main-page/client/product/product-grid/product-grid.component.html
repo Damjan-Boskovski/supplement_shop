@@ -1,0 +1,17 @@
+<div class="product-grid sha">
+  <div class="product-image">
+    <a routerLink="/details/{{ product.id }}">
+      <img class="pic-1" [src]="product.imageUrl" />
+    </a>
+    <span class="product-new-label" style="background: #6d3838">FFF</span>
+  </div>
+  <div class="product-content">
+    <h3 class="title">{{ product.name }} <br> <b>{{ product.manufacturer.name }}</b></h3>
+    <div class="price">
+      ${{ product.price }}
+    </div>
+    <button (click)="onAddToCart()" class="add-to-cart" type="button" style="color: rgb(235, 96, 96)"><i
+        class="fas fa-cart-plus"></i> Add To
+      Cart</button>
+  </div>
+</div>
